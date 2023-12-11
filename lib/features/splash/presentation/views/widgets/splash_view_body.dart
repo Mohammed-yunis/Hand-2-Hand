@@ -37,7 +37,6 @@ class _SplashBodyState extends State<SplashBody> {
                 fontSize: width * 0.05,
                 color: mainColor2,
                 fontWeight: FontWeight.w700,
-                decorationThickness: 22
               ),
               softWrap: true,
               textAlign: TextAlign.center,
