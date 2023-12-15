@@ -1,5 +1,8 @@
 import 'package:flutter/material.dart';
+import 'package:go_router/go_router.dart';
 import 'package:hand2hand/constants.dart';
+
+import '../../../../../core/utils/app_router.dart';
 
 class SplashBody extends StatefulWidget {
   const SplashBody({super.key});
@@ -9,6 +12,12 @@ class SplashBody extends StatefulWidget {
 }
 
 class _SplashBodyState extends State<SplashBody> {
+  @override
+  void initState() {
+    super.initState();
+    navigateToHome();
+  }
+
   @override
   Widget build(BuildContext context) {
     double height = MediaQuery.of(context).size.height -
@@ -45,5 +54,11 @@ class _SplashBodyState extends State<SplashBody> {
         ],
       ),
     );
+  }
+
+  void navigateToHome() {
+    Future.delayed(const Duration(milliseconds: 2), () async {
+      GoRouter.of(context).go(AppRouter.onBoarding);
+    });
   }
 }
