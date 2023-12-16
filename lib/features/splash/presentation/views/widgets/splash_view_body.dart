@@ -58,7 +58,7 @@ class _SplashBodyState extends State<SplashBody> {
 
   void navigateToHome() {
     Future.delayed(const Duration(milliseconds: 2), () async {
-      GoRouter.of(context).go(AppRouter.onBoarding);
+      GoRouter.of(context).go(AppRouter.home);
     });
   }
 }
