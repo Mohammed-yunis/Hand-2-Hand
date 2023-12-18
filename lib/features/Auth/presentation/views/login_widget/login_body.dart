@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:hand2hand/constants.dart';
-import '../../../../../core/utils/custom_rectangle_button.dart';
-import '../../../../../core/utils/custom_auth_text_field.dart';
+import '../../../../../core/widgets/custom_rectangle_button.dart';
+import '../../../../../core/widgets/custom_auth_text_field.dart';
 import '../../../../../core/utils/media_query.dart';
 import 'clip_part.dart';
 import 'right_part.dart';

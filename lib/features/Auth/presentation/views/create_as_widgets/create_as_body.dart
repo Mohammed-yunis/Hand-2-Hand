@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:hand2hand/constants.dart';
-import 'package:hand2hand/core/utils/clip_path.dart';
-import 'package:hand2hand/core/utils/custom_app_bar.dart';
+import 'package:hand2hand/core/widgets/clip_path.dart';
+import 'package:hand2hand/core/widgets/custom_app_bar.dart';
 import 'package:hand2hand/core/utils/media_query.dart';
 import 'package:hand2hand/features/Auth/presentation/views/create_as_widgets/circle_widget.dart';
 

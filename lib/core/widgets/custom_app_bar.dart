@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
 
-import 'media_query.dart';
+import '../utils/media_query.dart';
 
 class CustomAppBar extends StatelessWidget {
   const CustomAppBar({super.key, this.text});

@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 
 import '../../constants.dart';
-import 'media_query.dart';
+import '../utils/media_query.dart';
 
 class CustomRectangleButton extends StatelessWidget {
   const CustomRectangleButton({

@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 
-import '../../../../../core/utils/clip_path.dart';
+import '../../../../../core/widgets/clip_path.dart';
 
 class ClipPart extends StatelessWidget {
   const ClipPart({

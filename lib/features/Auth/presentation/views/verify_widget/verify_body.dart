@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:hand2hand/constants.dart';
-import 'package:hand2hand/core/utils/clip_path.dart';
-import 'package:hand2hand/core/utils/custom_app_bar.dart';
-import 'package:hand2hand/core/utils/custom_rectangle_button.dart';
+import 'package:hand2hand/core/widgets/clip_path.dart';
+import 'package:hand2hand/core/widgets/custom_app_bar.dart';
+import 'package:hand2hand/core/widgets/custom_rectangle_button.dart';
 import 'package:hand2hand/core/utils/media_query.dart';
 import 'package:otp_text_field/otp_field.dart';
 import 'package:otp_text_field/otp_field_style.dart';
