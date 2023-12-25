@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:go_router/go_router.dart';
+import 'package:hand2hand/core/utils/app_router.dart';
 
 import '../../../../../core/utils/media_query.dart';
 
@@ -19,7 +21,9 @@ class SignUpOrIn extends StatelessWidget {
               fontSize: SizeApp(context).width * 0.025),
         ),
         TextButton(
-            onPressed: () {},
+            onPressed: () {
+              GoRouter.of(context).push(AppRouter.createAs);
+            },
             child: Text(
               'Sign Up',
               style: TextStyle(

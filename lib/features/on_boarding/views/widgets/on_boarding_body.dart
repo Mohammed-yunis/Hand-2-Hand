@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
 import 'package:hand2hand/constants.dart';
+import 'package:hand2hand/core/utils/app_router.dart';
 import 'package:hand2hand/core/utils/functions/assets_service.dart';
-import 'package:hand2hand/core/widgets/custom_rounded_button.dart';
 import 'package:hand2hand/features/on_boarding/views/widgets/on_boarding_custom_widget.dart';
 
 class OnBoardingBody extends StatefulWidget {
@@ -60,7 +60,7 @@ class _OnBoardingBodyState extends State<OnBoardingBody> {
             "Win thin donation appe like food,clothes book fund, soys, medicine clectronic.e",
         textButton: 'Get Started',
         onPressed: () {
-
+          GoRouter.of(context).pushReplacement(AppRouter.login);
         },
       ),
     ];

@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:go_router/go_router.dart';
 import 'package:hand2hand/constants.dart';
+import 'package:hand2hand/core/utils/app_router.dart';
 import 'package:hand2hand/core/widgets/clip_path.dart';
 import 'package:hand2hand/core/widgets/custom_app_bar.dart';
 import 'package:hand2hand/core/widgets/custom_auth_text_field.dart';
@@ -21,12 +23,14 @@ class ForgetPassBody extends StatelessWidget {
             color: const Color(0xffC5EDF8),
           ),
         ),
-         Padding(
-           padding:  EdgeInsets.symmetric(horizontal: SizeApp(context).width * 0.06),
-           child: Column(
+        Padding(
+          padding:
+              EdgeInsets.symmetric(horizontal: SizeApp(context).width * 0.06),
+          child: Column(
             crossAxisAlignment: CrossAxisAlignment.center,
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
+              const SizedBoxApp(h: 0.07),
               const CustomAppBar(),
               const SizedBoxApp(h: 0.25),
               Align(
@@ -42,17 +46,31 @@ class ForgetPassBody extends StatelessWidget {
               ),
               const SizedBoxApp(h: 0.06),
               Container(
-                height:SizeApp(context).height * 0.0004,
+                height: SizeApp(context).height * 0.0004,
                 color: mainColor2,
               ),
-              const SizedBoxApp(h: 0.06),
-              const CustomAuthTextField(text: 'Email ID/Phone number',icon: Icons.alternate_email_outlined),
-              const SizedBoxApp(h: 0.025),
-              const CustomRectangleButton(text: 'Submit'),
-              const SizedBoxApp(h: 0.3),
+              Expanded(
+                child: SingleChildScrollView(
+                  child: Column(
+                    children: [
+                      const SizedBoxApp(h: 0.06),
+                      const CustomAuthTextField(
+                          text: 'Email ID/Phone number',
+                          icon: Icons.alternate_email_outlined),
+                      const SizedBoxApp(h: 0.025),
+                      CustomRectangleButton(
+                        text: 'Submit',
+                        press: () {
+                          GoRouter.of(context).push(AppRouter.verify);
+                        },
+                      ),
+                    ],
+                  ),
+                ),
+              ),
             ],
-        ),
-         )
+          ),
+        )
       ],
     );
   }

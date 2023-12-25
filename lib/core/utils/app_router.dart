@@ -23,11 +23,31 @@ abstract class AppRouter {
     routes: [
       GoRoute(
         path: firstPage,
-        builder: (context, state) => const VerifyView(),
+        builder: (context, state) => const SplashView(),
       ),
       GoRoute(
         path: onBoarding,
         builder: (context, state) => const OnBoarding(),
+      ),
+      GoRoute(
+        path: login,
+        builder: (context, state) => const LoginView(),
+      ),
+      GoRoute(
+        path: forgetPass,
+        builder: (context, state) => const ForgetPassView(),
+      ),
+      GoRoute(
+        path: verify,
+        builder: (context, state) => const VerifyView(),
+      ),
+      GoRoute(
+        path: createAs,
+        builder: (context, state) => const CreateAsView(),
+      ),
+      GoRoute(
+        path: register,
+        builder: (context, state) => const RegisterView(),
       ),
       GoRoute(
         path: home,

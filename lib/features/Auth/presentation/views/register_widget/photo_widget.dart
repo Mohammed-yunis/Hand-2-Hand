@@ -1,5 +1,8 @@
+import 'dart:io';
+
 import 'package:flutter/material.dart';
 import 'package:hand2hand/constants.dart';
+import 'package:hand2hand/core/utils/functions/load_image.dart';
 import 'package:hand2hand/core/utils/media_query.dart';
 
 class PhotoWidget extends StatelessWidget {
@@ -9,6 +12,7 @@ class PhotoWidget extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    File? imageFile;
     return Stack(
       alignment: AlignmentDirectional.bottomEnd,
       children: [
@@ -16,8 +20,7 @@ class PhotoWidget extends StatelessWidget {
           decoration: BoxDecoration(
               shape: BoxShape.circle,
               border: Border.all(
-                  color: mainColor2,
-                  width: SizeApp(context).width * 0.0025)),
+                  color: mainColor2, width: SizeApp(context).width * 0.0025)),
           child: Stack(
             alignment: Alignment.center,
             children: [
@@ -37,7 +40,10 @@ class PhotoWidget extends StatelessWidget {
           radius: SizeApp(context).width * 0.05,
           backgroundColor: iconsColor,
           child: IconButton(
-              onPressed: () {},
+              onPressed: () {
+                chooseImage(context, imageFile)
+                    .then((value) => imageFile = value);
+              },
               icon: Icon(
                 Icons.camera_enhance_sharp,
                 color: scaffoldColor,
