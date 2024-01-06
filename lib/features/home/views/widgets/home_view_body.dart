@@ -27,15 +27,13 @@ class HomeViewBody extends StatelessWidget {
             ),
             Row(
               children: [
-                InkWell(
-                    child: Image.asset(
-                  AssetsService.notification,
-                )),
+              IconButton(onPressed: (){}, icon:Image.asset(AssetsService.notification) ),
                 SizedBox(
                   width: width * .02,
                 ),
                 CircleAvatar(
-                  child: Image.asset(AssetsService.onBoard1),
+                  radius: 20,
+                backgroundImage: AssetImage(AssetsService.onBoard1),
                 ),
               ],
             )

@@ -1,8 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
 import 'package:hand2hand/constants.dart';
+import 'package:hand2hand/core/utils/media_query.dart';
 
 import '../../../../../core/utils/app_router.dart';
+import 'slidinganimationtext.dart';
 
 class SplashBody extends StatefulWidget {
   const SplashBody({super.key});
@@ -11,19 +13,24 @@ class SplashBody extends StatefulWidget {
   State<SplashBody> createState() => _SplashBodyState();
 }
 
-class _SplashBodyState extends State<SplashBody> {
+class _SplashBodyState extends State<SplashBody>with SingleTickerProviderStateMixin  {
+  late AnimationController animationController;
+  late Animation<Offset> slidingAnimation;
   @override
   void initState() {
     super.initState();
+    initSlidingAnimation();
     navigateToHome();
   }
 
+
+  @override
+  void dispose() {
+    super.dispose();
+    animationController.dispose();
+  }
   @override
   Widget build(BuildContext context) {
-    double height = MediaQuery.of(context).size.height -
-        AppBar().preferredSize.height -
-        MediaQuery.of(context).padding.top;
-    double width = MediaQuery.of(context).size.width;
     return Center(
       child: Column(
         mainAxisAlignment: MainAxisAlignment.center,
@@ -32,33 +39,28 @@ class _SplashBodyState extends State<SplashBody> {
             'Hand 2 Hand',
             style: TextStyle(
                 fontFamily: 'splash',
-                fontSize: width * 0.13,
+                fontSize: SizeApp(context).width * 0.13,
                 color: mainColor1),
           ),
           SizedBox(
-            height: height * 0.25,
+            height: SizeApp(context).height * 0.25,
           ),
           Padding(
-            padding: EdgeInsets.symmetric(horizontal: width * .2),
-            child: Text(
-              'You can put a smile on someone\'s face',
-              style: TextStyle(
-                fontSize: width * 0.05,
-                color: mainColor2,
-                fontWeight: FontWeight.w700,
-              ),
-              softWrap: true,
-              textAlign: TextAlign.center,
-            ),
+            padding: EdgeInsets.symmetric(horizontal: SizeApp(context).width * .2),
+            child:SlideAnimatedText(slidingAnimation: slidingAnimation)
           ),
         ],
       ),
     );
   }
-
+  void initSlidingAnimation() {
+    animationController=AnimationController(vsync: this,duration:const Duration(milliseconds: 1500));
+    slidingAnimation=Tween<Offset>(begin:const Offset(0,3) ,end:Offset.zero ).animate(animationController);
+    animationController.forward();
+  }
   void navigateToHome() {
-    Future.delayed(const Duration(milliseconds: 2), () async {
-      GoRouter.of(context).go(AppRouter.home);
+    Future.delayed(const Duration(seconds: 3), () async {
+      GoRouter.of(context).go(AppRouter.onBoarding);
     });
   }
 }
