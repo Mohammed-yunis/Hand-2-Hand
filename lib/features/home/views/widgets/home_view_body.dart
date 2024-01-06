@@ -3,6 +3,7 @@ import 'package:hand2hand/constants.dart';
 import 'package:hand2hand/core/utils/functions/assets_service.dart';
 
 import 'catigory_item.dart';
+import 'recommended_widget.dart';
 
 class HomeViewBody extends StatelessWidget {
   const HomeViewBody({super.key});
@@ -145,7 +146,7 @@ class HomeViewBody extends StatelessWidget {
           ),
         ),
         SizedBox(
-          height: 500,
+          height: 360,
           child: ListView.builder(
             scrollDirection: Axis.horizontal,
             itemCount: 4,
@@ -155,124 +156,6 @@ class HomeViewBody extends StatelessWidget {
           ),
         ),
       ],
-    );
-  }
-}
-
-class MyListItem2 extends StatelessWidget {
-  final int itemNumber;
-
-  MyListItem2(this.itemNumber);
-
-  @override
-  Widget build(BuildContext context) {
-    return Container(
-      width: 280,
-      padding: const EdgeInsets.all(8.0),
-      child: Column(
-        crossAxisAlignment: CrossAxisAlignment.start,
-        children: [
-          Container(
-            width: 280,
-            height: 200,
-            decoration: BoxDecoration(
-              color: Colors.grey.withOpacity(.2),
-              borderRadius: BorderRadius.circular(12.0),
-              image: const DecorationImage(
-                image: AssetImage(AssetsService.homeImage),
-                fit: BoxFit.cover,
-              ),
-            ),
-            child: Stack(
-              children: [
-                const Positioned(
-                  top: 10.0,
-                  right: 10.0,
-                  child: Row(
-                    children: [
-                      CircleAvatar(
-                        backgroundColor: Colors.green,
-                        radius: 5,
-                      ),
-                      SizedBox(
-                        width: 3,
-                      ),
-                      Text(
-                        'Active',
-                        style: TextStyle(color: Colors.white),
-                      )
-                    ],
-                  ),
-                ),
-                Positioned(
-                  bottom: 10.0,
-                  right: 10.0,
-                  child: Row(
-                    children: [
-                      Container(
-                        height: 30,
-                        width: 30,
-                        color: Colors.green,
-                        child: const Icon(
-                          Icons.share,
-                          color: Colors.white,
-                        ),
-                      ),
-                      const SizedBox(width: 8.0),
-                      Container(
-                        height: 30,
-                        width: 30,
-                        color: Colors.green,
-                        child: const Icon(
-                          Icons.account_balance_wallet_outlined,
-                          color: Colors.white,
-                        ),
-                      ),
-                    ],
-                  ),
-                ),
-              ],
-            ),
-          ),
-          Container(
-            color: Colors.grey.withOpacity(.2),
-            padding: const EdgeInsets.all(12),
-            child: Column(
-              crossAxisAlignment: CrossAxisAlignment.start,
-              children: [
-                Text(
-                  'Educate Every child. Join Our Mission for Quality Education:',
-                  style: TextStyle(
-                    fontWeight: FontWeight.bold,
-                    fontSize: 18.0,
-                  ),
-                ),
-                SizedBox(height: 10.0),
-                Container(
-                  height: 6,
-                  width: 180,
-                  decoration: BoxDecoration(
-                      color: Colors.green,
-                      borderRadius: BorderRadius.circular(3)),
-                ),
-                SizedBox(height: 10.0),
-                Row(
-                  children: [
-                    Text(
-                      'Target: ',
-                      style: TextStyle(color: Colors.grey,fontSize: 17),
-                    ),
-                    Text(
-                      '150,000 \$ ',
-                      style: TextStyle(fontWeight: FontWeight.bold,fontSize: 20),
-                    )
-                  ],
-                )
-              ],
-            ),
-          )
-        ],
-      ),
     );
   }
 }

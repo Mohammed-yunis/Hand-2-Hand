@@ -3,7 +3,7 @@ import 'package:flutter/material.dart';
 class MyListItem extends StatelessWidget {
   final int itemNumber;
 
-  MyListItem(this.itemNumber, {super.key});
+  const MyListItem(this.itemNumber, {super.key});
 
   @override
   Widget build(BuildContext context) {
