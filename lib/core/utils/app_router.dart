@@ -3,6 +3,7 @@ import 'package:hand2hand/features/Auth/presentation/views/create_as_view.dart';
 import 'package:hand2hand/features/Auth/presentation/views/forget_pass_view.dart';
 import 'package:hand2hand/features/Auth/presentation/views/register_view.dart';
 import 'package:hand2hand/features/Auth/presentation/views/verify_view.dart';
+import 'package:hand2hand/features/home/views/campaign_details_view.dart';
 import 'package:hand2hand/features/home/views/home_view.dart';
 import 'package:hand2hand/features/on_boarding/views/on_boarding.dart';
 import '../../features/Auth/presentation/views/login_view.dart';
@@ -17,6 +18,7 @@ abstract class AppRouter {
   static const createAs='/createAs';
   static const register='/register';
   static const home='/home';
+  static const campaign='/campaign';
 
 
   static final router = GoRouter(
@@ -52,6 +54,9 @@ abstract class AppRouter {
       GoRoute(
         path: home,
         builder: (context, state) => const HomeView(),
+      ),GoRoute(
+        path: campaign,
+        builder: (context, state) => const CampaignDetailsView(),
       ),
     ],
   );

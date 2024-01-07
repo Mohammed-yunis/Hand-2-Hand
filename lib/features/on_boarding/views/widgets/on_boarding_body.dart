@@ -67,15 +67,18 @@ class _OnBoardingBodyState extends State<OnBoardingBody> {
     return Stack(
       children: [
         PageView.builder(
+          itemCount: 4,
           onPageChanged: (int page) {
             setState(() {
-              currentIndex = page;
+
+                currentIndex = page;
+
             });
           },
           itemBuilder: (context, index) {
             return Padding(
               padding: EdgeInsets.all(size.width * .15),
-              child: pages[index],
+              child: pages[currentIndex],
             );
           },
           controller: _pageController,

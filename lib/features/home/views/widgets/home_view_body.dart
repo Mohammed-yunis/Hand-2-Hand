@@ -1,132 +1,34 @@
 import 'package:flutter/material.dart';
-import 'package:hand2hand/constants.dart';
-import 'package:hand2hand/core/utils/functions/assets_service.dart';
+import 'package:hand2hand/core/utils/media_query.dart';
 
-import 'catigory_item.dart';
+import 'category_item.dart';
+import 'custom_texts_widget.dart';
+import 'favourite_categories_row.dart';
 import 'recommended_widget.dart';
+import 'search_text_field.dart';
 
 class HomeViewBody extends StatelessWidget {
   const HomeViewBody({super.key});
 
   @override
   Widget build(BuildContext context) {
-    double height = MediaQuery.of(context).size.height -
-        AppBar().preferredSize.height -
-        MediaQuery.of(context).padding.top;
-    double width = MediaQuery.of(context).size.width;
+    final w = SizeApp(context).width;
+    final h = SizeApp(context).height;
     return ListView(
-      padding: EdgeInsets.all(width * .05),
+      padding: EdgeInsets.symmetric(horizontal: w * .05, vertical: h * .01),
       physics: const BouncingScrollPhysics(),
       children: [
-        Row(
-          mainAxisAlignment: MainAxisAlignment.spaceBetween,
-          children: [
-            Icon(
-              Icons.menu_outlined,
-              size: width * .11,
-            ),
-            Row(
-              children: [
-              IconButton(onPressed: (){}, icon:Image.asset(AssetsService.notification) ),
-                SizedBox(
-                  width: width * .02,
-                ),
-                CircleAvatar(
-                  radius: 20,
-                backgroundImage: AssetImage(AssetsService.onBoard1),
-                ),
-              ],
-            )
-          ],
-        ),
+        /// The texts hello
+        const CustomTextsWidget(),
+        /// search text field
+        const SearchTextField(),
+        SizedBox(height: h * .015),
+        /// Favourite text
+        const FavouriteCategoriesRow(),
+        SizedBox(height: h * .01),
+        /// The favourite list
         SizedBox(
-          height: height * .03,
-        ),
-        Row(
-          children: [
-            Text(
-              'Hello, ',
-              style:
-                  TextStyle(fontSize: width * .06, fontWeight: FontWeight.bold),
-            ),
-            Text(
-              'Lenardo',
-              style: TextStyle(color: mainColor1, fontSize: width * .06),
-            )
-          ],
-        ),
-        SizedBox(height: height * .01),
-        Padding(
-          padding: EdgeInsets.only(left: width * .04),
-          child: const Text('what do you want to donate today?'),
-        ),
-        SizedBox(height: height * .025),
-        TextField(
-          decoration: InputDecoration(
-            hintText: 'Search Campaign',
-            contentPadding: const EdgeInsets.symmetric(horizontal: 16.0),
-            prefixIcon: Icon(
-              Icons.search,
-              size: width * .08,
-            ),
-            suffixIcon: IconButton(
-              icon: Row(
-                children: [
-                  Container(
-                    height: height * .03,
-                    color: mainColor2,
-                    width: width * .003,
-                  ),
-                  SizedBox(
-                    width: width * .01,
-                  ),
-                  const Icon(
-                    Icons.mic,
-                  ),
-                ],
-              ),
-              onPressed: () {
-                // Handle mic icon tap
-                print('Mic icon tapped');
-              },
-            ),
-            border: OutlineInputBorder(
-              borderRadius: BorderRadius.circular(20.0),
-            ),
-          ),
-        ),
-        SizedBox(height: height * .015),
-        Row(
-          mainAxisAlignment: MainAxisAlignment.spaceBetween,
-          children: [
-            Padding(
-              padding: EdgeInsets.only(left: width * .05),
-              child: const Text(
-                'Favourite categories',
-                style: TextStyle(fontWeight: FontWeight.bold),
-              ),
-            ),
-            TextButton(
-              onPressed: () {},
-              child: Row(
-                children: [
-                  Text(
-                    'See All ',
-                    style: TextStyle(
-                        color: mainColor1, fontWeight: FontWeight.bold),
-                  ),
-                  Icon(
-                    Icons.arrow_forward,
-                    color: mainColor1,
-                  )
-                ],
-              ),
-            ),
-          ],
-        ),
-        SizedBox(height: height * .01),
-        SizedBox(
-          height: height * .15,
+          height: h * .15,
           child: ListView.builder(
             scrollDirection: Axis.horizontal,
             itemCount: 6,
@@ -135,21 +37,22 @@ class HomeViewBody extends StatelessWidget {
             },
           ),
         ),
+        /// Recommendation text
         Padding(
-          padding: EdgeInsets.only(left: width * .05),
+          padding: EdgeInsets.only(left: w * .05),
           child: Text(
             'Recommend for you',
-            style:
-                TextStyle(fontWeight: FontWeight.bold, fontSize: width * .04),
+            style: TextStyle(fontWeight: FontWeight.bold, fontSize: w * .04),
           ),
         ),
+        /// The recommendation list items
         SizedBox(
           height: 360,
           child: ListView.builder(
             scrollDirection: Axis.horizontal,
             itemCount: 4,
             itemBuilder: (context, index) {
-              return MyListItem2(index + 1); // Add 1 to start index from 1
+              return RecommendedWidget(index + 1); // Add 1 to start index from 1
             },
           ),
         ),
